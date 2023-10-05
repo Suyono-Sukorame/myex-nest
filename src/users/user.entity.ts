@@ -1,5 +1,7 @@
 import {
     AfterInsert,
+    AfterUpdate,
+    AfterRemove,
     Entity,
     Column,
     PrimaryGeneratedColumn 
@@ -23,5 +25,15 @@ export class User {
 
     logInsert() {
         console.log('Inserted User with id: ' + this.id);
+    }
+
+    @AfterUpdate()
+    logUpdate() {
+        console.log('Updated User with id: ' + this.id);
+    }
+
+    @AfterRemove()
+    logRemove() {
+        console.log('Remove User with id: ' + this.id);
     }
 }
